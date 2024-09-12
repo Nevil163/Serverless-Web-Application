@@ -26,7 +26,7 @@ CMPE272 Assignment 2 (Serverless Apptication)
 ### Step 3 : Setting up Lambda Function
 > 1. Go to AWS Lambda console and create a new function and give a name StudentRecordHandler
 > 2. Chose appropriate runtime, in this project, I am going to utilize Python 3.9 Runtime
-> ![img.png](images/Lambda Function.png)
+>   ![img.png](images/Lambda Function.png)
 > 3. Copy and Paste code written in lambda.py to lambda function
 > 4. Click on Deploy
 
@@ -36,13 +36,13 @@ CMPE272 Assignment 2 (Serverless Apptication)
 >   ![img.png](images/API.png)
 
 > 1. create POST API Method in /students Resource
->   ![img.png](images/POST_API.png)
+>   ![img.png](images/Post_API.png)
 > 2. create GET API Method in /students Resource
->   ![img.png](images/GET_API.png)
+>   ![img.png](images/Get_API.png)
 > 3. create PUT API Method in /students Resource
->   ![img.png](images/PUT_API.png)
+>   ![img.png](images/Put_API.png)
 > 4. create DELETE API Method in /students Resource
->   ![img.png](images/DELETE_API.png)
+>   ![img.png](images/Delete_API.png)
 
 ### Results
 >    1. test_post event
@@ -70,7 +70,8 @@ CMPE272 Assignment 2 (Serverless Apptication)
 
 
 
-* Currently, this application supports both READ and WRITE operations on DynamoDB via a Lambda function through a REST API.
+* Currently, this application supports both READ and WRITE, UPDATE and DELETE operations on DynamoDB via a Lambda function through a REST API.
 
 ## Issues Faced
-* During the development of this project, I encountered an issue with integrating a REST API with a Lambda function, specifically in parsing the request body in the Lambda function. To resolve this, I created a custom mapping template capable of handling both GET and POST requests.
+* During the development of this project, I encountered an issue with integrating a REST API with a Lambda function, specifically in giving role in the Lambda function. To resolve this, I give a specific role in the lambda function.
+
