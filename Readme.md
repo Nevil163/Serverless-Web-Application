@@ -26,7 +26,7 @@ CMPE272 Assignment 2 (Serverless Apptication)
 ### Step 3 : Setting up Lambda Function
 > 1. Go to AWS Lambda console and create a new function and give a name StudentRecordHandler
 > 2. Chose appropriate runtime, in this project, I am going to utilize Python 3.9 Runtime
->   ![img.png](images/Lambda Function.png)
+>   ![img.png](images/Lambda_function.png)
 > 3. Copy and Paste code written in lambda.py to lambda function
 > 4. Click on Deploy
 
@@ -35,37 +35,45 @@ CMPE272 Assignment 2 (Serverless Apptication)
 > 1. Go to AWS API Gateway control and click on Build for REST API.
 >   ![img.png](images/API.png)
 
-> 1. create POST API Method in /students Resource
+> 1. Create POST API Method in /students Resource
+
 >   ![img.png](images/Post_API.png)
-> 2. create GET API Method in /students Resource
+
+
+> 2. Create GET API Method in /students Resource
+
 >   ![img.png](images/Get_API.png)
-> 3. create PUT API Method in /students Resource
+
+
+> 3. Create PUT API Method in /students Resource
 >   ![img.png](images/Put_API.png)
-> 4. create DELETE API Method in /students Resource
+
+
+> 4. Create DELETE API Method in /students Resource
 >   ![img.png](images/Delete_API.png)
 
+
 ### Results
->    1. test_post event
+>    1. test_post
 >       * Paste the following JSON to test configuration window
 >         * ```{"method": "POST", "body": "{"student_id": "123", "name": "John Doe", "course": "Enterprise Software"}"}```
 >       * Result
 >       ![img.png](images/Post.png)
->    2. test_get event
+>    2. test_get
 >       * Paste the following JSON to test configuration window
 >         *  ``` { "method": "GET", "query": { "student_id": "123"}} ```
 >       * Result
 >       ![img.png](images/Get.png)
->    3. test_delete event
+>    3. test_delete
 >       * Paste the following JSON to test configuration window
 >         *  ``` {"method": "DELETE", "query": {"student_id": "123"}} ```
 >       * Result
 >       ![img.png](images/Delete.png)
->    4. test_update event
+>    4. test_update 
 >       * Paste the following JSON to test configuration window
 >         *  ``` {"method": "PUT", "body": "{"student_id": "123", "name": "John Doe updated", "course": "Enterprise Software"}"} ```
 >       * Result
 >       ![img.png](images/Put.png)
-
 
 
 
