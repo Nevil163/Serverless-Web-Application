@@ -15,23 +15,36 @@ CMPE272 Assignment 2 (Serverless Apptication)
 ### Step 1 : Setting up Database using AWS Dynamodb
 > 1. Go to AWS management console and open Dynamodb and Create a table named "StudentRecords".
 > 2. Mention the primary key as "student_id" and it should be string.
-> ![img.png](images/dynamodb.png)
+> ![img.png](images/Table.png)
 
 ### Step 2 : Setting up IAM role
 > 1. Go to Identity Access Management and Create a user role which has full access to DynamoDB
-> ![img.png](images/IAM_Lamdba.png)
-> ![img.png](images/IAM_Lambda2.png)
+> ![img.png](images/Role.png)
+
+
 
 ### Step 3 : Setting up Lambda Function
 > 1. Go to AWS Lambda console and create a new function and give a name StudentRecordHandler
 > 2. Chose appropriate runtime, in this project, I am going to utilize Python 3.9 Runtime
-> ![img.png](images/lambda1.png)
-> 3. Attach the appropriate user role to allow read and write of DynamoDB.
-> ![img.png](images/lambda2.png)
->
-> 4. Copy and Paste code written in lambda.py to lambda function
-> 5. Click on Deploy
-> 6. Configure the Test Event for basic testing
+> ![img.png](images/Lambda Function.png)
+> 3. Copy and Paste code written in lambda.py to lambda function
+> 4. Click on Deploy
+
+
+### Step 4: Create an API Gateway
+> 1. Go to AWS API Gateway control and click on Build for REST API.
+>   ![img.png](images/API.png)
+
+> 1. create POST API Method in /students Resource
+>   ![img.png](images/POST_API.png)
+> 2. create GET API Method in /students Resource
+>   ![img.png](images/GET_API.png)
+> 3. create PUT API Method in /students Resource
+>   ![img.png](images/PUT_API.png)
+> 4. create DELETE API Method in /students Resource
+>   ![img.png](images/DELETE_API.png)
+
+### Results
 >    1. test_post event
 >       * Paste the following JSON to test configuration window
 >         * ```{"method": "POST", "body": "{"student_id": "123", "name": "John Doe", "course": "Enterprise Software"}"}```
@@ -54,36 +67,7 @@ CMPE272 Assignment 2 (Serverless Apptication)
 >       ![img.png](images/Put.png)
 
 
-### Step 4: Create an API Gateway
-> 1. Go to AWS API Gateway control and click on Build for REST API.
->   ![img.png](images/api_gateway.png)
-> 2. Create resource and name it "students"
-> 3. Under resource student, Create a GET method
->    ![img.png](images/get_method.png)
->    1. Once GET method is created, then go to integration request, then go to mapping template, then click on edit and paste the content of "integration_template", then click on save.
->    ![img.png](images/integration_template.png)
->    2. Make sure it should look like this as shown in above picture.
-> 4. Under resource student, Create a POST method
->    ![img.png](images/post_method.png)
->    1. Once POST method is created, then go to integration template, then go to mapping template, then click on edit and paste the content of "integration_template", then click on save.
->    ![img_1.png](images/integration_template.png)
->    2. Make sure it should look like this as shown in above picture.
-> 5. Click on deploy API, chose appropriate deploy version
 
-
-### Results
-> 1. GET request
->    * POSTMAN
->      ![img.png](images/get_request_postman.png)
->    * AWS DynamoDB
->      ![img.png](images/dynamodb_get.png)
->
-
-> 2. POST request
->    * POSTMAN
->       ![img.png](images/post_request_postman.png)
->    * AWS DynamoDB
->       ![img.png](dynamodb_post.png)
 
 
 * Currently, this application supports both READ and WRITE operations on DynamoDB via a Lambda function through a REST API.
